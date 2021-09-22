@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>{{tittle}}</title>
+</head>
+
+<body>
+
+    <h1>Green Leaves
+    </h1>
+
+    <form [formGroup]="form" (ngSubmit)="GuardarContacto()">
+        <div>
+            <label for="Nombre">Nombre:</label>
+            <input type="text " name="Nombre" formControlName="nombre" /><br />
+        </div>
+        <div>
+            <label for="email">E-Mail:</label>
+            <input type="text " name="email" formControlName="email" /><br />
+        </div>
+        <div>
+            <label for="Tel"> Teléfono:</label>
+            <input type="text " name="telefono" formControlName="tel" /><br />
+        </div>
+        <div>
+            <!-- <label for="fecha"> Fecha:</label>
+            <input type="text " name="fecha" formControlName="fecha" /><br /> -->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <label for="CidEst">Ciudad y Estado:</label>
+            <!-- <input type="text " name="ciudad" formControlName="cuidadEst" /><br /> -->
+            <input type="text" [formControl]="myControl" [matAutocomplete]="auto" formControlName="cuidadEst">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of lstCiudades | async" [value]="option.nombre">
+                    {{option.nombre}}
+                </mat-option>
+            </mat-autocomplete>
+        </div>
+        <!-- <div *ngFor="let element of lstCiudades |async">
+            {{element.nombre}}
+        </div> -->
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+
+</html>
