@@ -73,8 +73,8 @@ export class ContactoService {
     }, httpOptions).subscribe(result => {
       console.log(result);
       form.reset();
-      this.SendMailDefaukt("angel@inari.mx", nombre, email, fecha.toString(), ciudadEst);
-      this.SendMail("jordyespejel7@gmail.com", nombre, email, fecha.toString(), ciudadEst);
+      this.SendMailDefaukt("flaria@ectotec.com", nombre, email, fecha.toString(), ciudadEst);
+      this.SendMail(email, nombre, email, fecha.toString(), ciudadEst);
     }, error => console.error(error)
     );
   }
